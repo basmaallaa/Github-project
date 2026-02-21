@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt1" name="fName" placeholder="first name"/>
+    <br /><br />
+    <input type="text" id="txt2" name="lName" placeholder="last name"/> <br /><br />
+    <input type="text" id="txt3" name="uAge" placeholder="Age"/> <br /><br />
+
+    <input type="button" value="Save" onclick="saveInfo()" />
+    <input type="text" id="delName" placeholder="cookie name"><br><br>
+    <input type="button" value="Delete" onclick="deleteCookie()" />
+    <!-- <input type="button" value="delete" onclick="deleteCook()" /> -->
+     <script src="cookiesLab.js"></script>
+     <script>
+        function saveInfo() {
+         var name1 = document.querySelector("#txt1").name;
+        var inp1 = document.querySelector("#txt1").value;
+         var name2 = document.querySelector("#txt2").name;
+        var inp2 = document.querySelector("#txt2").value;
+        var name3 = document.querySelector("#txt3").name;
+        var inp3 = document.querySelector("#txt3").value;
+
+
+        var date = new Date();
+        var d = date.getDate();
+        date.setDate(d + 5);
+
+        var sec = new Date();
+        sec.setSeconds(sec.getSeconds() + 36000);
+
+        setCookie(name1,inp1,date);
+        setCookie(name2,inp2,sec);
+        setCookie(name3,inp3);
+        
+        
+        // location.assign('./test.html')
+        console.log(getCookie(name1));
+
+        console.log(getAllCookies());
+        console.log(hasCookie("lName"));
+}
+
+     </script>
+
+    </script>
+</body>
+</html>

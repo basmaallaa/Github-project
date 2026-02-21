@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    
+</head>
+<body>
+
+<h2 id="msg"></h2>
+<img id="pic" width="150"><br><br>
+<script src="cookiesLab.js"></script>
+<script>
+try {
+    var name = getCookie("username");
+    var gender = getCookie("gender");
+    var color = getCookie("color");
+    var visits = getCookie("visits");
+
+    if (!name) {
+        location.replace("registration.html");
+    }
+
+    document.getElementById("msg").innerHTML =
+        "Welcome " + name + " <br> Visits: " + visits;
+
+    document.getElementById("msg").style.color = color;
+
+    if (gender === "male")
+        document.getElementById("pic").src = "1.jpg";
+    else
+        document.getElementById("pic").src = "2.jpg";
+
+} catch (e) {
+    alert("Error: " + e);
+}
+</script>
+
+</body>
+</html>
