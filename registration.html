@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+<h2>Registration</h2>
+
+<input id="name" placeholder="Your Name"><br><br>
+
+Gender:
+<input type="radio" name="gender" value="male"> Male
+<input type="radio" name="gender" value="female"> Female
+<br><br>
+
+Favorite Color:
+<input type="color" id="color"><br><br>
+
+<button onclick="register()">Register</button>
+
+<script src="cookiesLab.js"></script>
+<script>
+function register() {
+    var name = document.getElementById("name").value;
+    var color = document.getElementById("color").value;
+    var gender = document.querySelector("input[name='gender']:checked");
+
+    if (!name || !gender) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    var d = new Date();
+    d.setDate(d.getDate() + 7);
+
+    setCookie("username", name, d);
+    setCookie("gender", gender.value, d);
+    setCookie("color", color, d);
+
+    
+    if (!hasCookie("visits"))
+        setCookie("visits", 1, d);
+    else
+        setCookie("visits", parseInt(getCookie("visits")) + 1, d);
+
+    location.replace("profile.html"); 
+}
+</script>
+</body>
+</html>

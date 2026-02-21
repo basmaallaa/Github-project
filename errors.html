@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>errors</title>
+</head>
+<body>
+    <script>
+        function acceptTwoParams(a, b) {
+            if (arguments.length !== 2) {
+                throw new Error("Function must receive exactly 2 parameters.");
+            }
+            return `You entered: ${a} and ${b}`;
+        }
+
+        function addNumbers(a,b) {
+
+            if (arguments.length === 0) {
+                throw new Error("You must pass at least one number.");
+            }
+
+            let sum = 0;
+
+            for (let i = 0; i < arguments.length; i++) {
+                if (typeof arguments[i] !== "number") {
+                    throw new Error("All parameters must be numbers only.");
+                }
+                sum += arguments[i];
+            }
+
+            return sum;
+        }
+        // console.log(acceptTwoParams(5,6));
+        // console.log(acceptTwoParams(5));
+        console.log(addNumbers(5,6));
+        // console.log(addNumbers());
+        console.log(addNumbers(5,'a'));
+
+    </script>
+</body>
+</html>
